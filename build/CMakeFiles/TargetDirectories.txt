@@ -1,0 +1,3 @@
+/home/dhp/code/cpp/Learn/TinyThreadPool/build/CMakeFiles/MyExecutable.dir
+/home/dhp/code/cpp/Learn/TinyThreadPool/build/CMakeFiles/edit_cache.dir
+/home/dhp/code/cpp/Learn/TinyThreadPool/build/CMakeFiles/rebuild_cache.dir
