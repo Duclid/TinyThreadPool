@@ -16,7 +16,7 @@ public:
     this->name_ = other.name_;
   }
 
-  void Run() {
+  int Run() {
     cout << "============================================================="
          << endl;
     cout << "== Thread : " << this_thread::get_id() << " Mytask" << name_
@@ -29,6 +29,8 @@ public:
       cout << "." << endl;
       this_thread::sleep_for(500ms);
     }
+
+    return 0;
   }
 
   ~MyTask() { cout << "Distruct MyTask : " << name_ << endl; }
@@ -60,7 +62,22 @@ int main(int argc, char **argv) {
   auto task5 = make_shared<MyTask>("task_005");
   thread_pool.AddTask(task5);
 
-  //this_thread::sleep_for(5s);
+  auto re1 = task1->GetReturn();
+  cout << "task1 return : " << re1 << endl;
+
+  auto re2 = task2->GetReturn();
+  cout << "task2 return : " << re2 << endl;
+
+  auto re3 = task3->GetReturn();
+  cout << "task3 return : " << re3 << endl;
+
+  auto re4 = task4->GetReturn();
+  cout << "task4 return : " << re4 << endl;
+
+  auto re5 = task5->GetReturn();
+  cout << "task5 return : " << re5 << endl;
+
+  // this_thread::sleep_for(5s);
   thread_pool.Stop();
 
   getchar();

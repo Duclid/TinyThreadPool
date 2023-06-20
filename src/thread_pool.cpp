@@ -109,16 +109,18 @@ void ThreadPool::Run(){
     while(!is_exit()){
         // allocate thread run task
         auto task = GetTask();
+        ++run_task_counts_;
         if(!task){
             continue;
         }
 
         try{
             //cout << "| Thread : " << this_thread::get_id() << " run |" << endl;
-            task->Run();
+            auto re = task->Run();
+            task->SetValue(re);
         }catch(...){
 
         }
-
+        --run_task_counts_;
     }
 }
